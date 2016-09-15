@@ -1,3 +1,3 @@
 #!/bin/sh
 cd /home/audiogram/audiogram
-npm start&
+npm start
