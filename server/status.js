@@ -9,7 +9,6 @@ module.exports = function(req, res) {
     .await(function(err, jobs, hash) {
 
       if (err) {
-        res.status(500).json("Unknown error.");
         throw err;
       }
 
@@ -30,12 +29,12 @@ module.exports = function(req, res) {
         hash = { status: "unknown" };
       }
 
-      ["duration","numFrames","framesComplete"].forEach(function(key) {
+      ["numFrames", "framesComplete"].forEach(function(key) {
         if (key in hash) {
           hash[key] = +hash[key];
         }
       });
-
+        
       res.json(hash);
 
     });

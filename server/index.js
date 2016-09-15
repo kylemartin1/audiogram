@@ -10,10 +10,11 @@ var express = require("express"),
 var logger = require("../lib/logger/"),
     render = require("./render.js"),
     status = require("./status.js"),
+    fonts = require("./fonts.js"),
     errorHandlers = require("./error.js");
 
 // Settings
-var serverSettings = require("../settings/");
+var serverSettings = require("../lib/settings/");
 
 var app = express();
 
@@ -30,29 +31,25 @@ console.log('CORS enabled!');
 
 // Options for where to store uploaded audio and max size
 var fileOptions = {
-  storage: multer.diskStorage({
-    destination: function(req, file, cb) {
+    storage: multer.diskStorage({
+        destination: function (req, file, cb) {
 
-      var dir = path.join(serverSettings.workingDirectory, uuid.v1());
+            var dir = path.join(serverSettings.workingDirectory, uuid.v1());
 
-      mkdirp(dir, function(err) {
-        return cb(err, dir);
-      });
-    },
-    filename: function(req, file, cb) {
-      cb(null, "audio");
-    }
-  })
+            mkdirp(dir, function (err) {
+                return cb(err, dir);
+            });
+        },
+        filename: function (req, file, cb) {
+            cb(null, "audio");
+        }
+    })
 };
 
 if (serverSettings.maxUploadSize) {
-  fileOptions.limits = {
-    fileSize: +serverSettings.maxUploadSize
-  };
-}
-
-if (typeof serverSettings.workingDirectory !== "string") {
-  throw new TypeError("No workingDirectory set in settings/index.js");
+    fileOptions.limits = {
+        fileSize: +serverSettings.maxUploadSize
+    };
 }
 
 // On submission, check upload, validate input, and start generating a video
@@ -60,11 +57,15 @@ app.post("/submit/", [multer(fileOptions).single("audio"), render.validate, rend
 
 // If not using S3, serve videos locally
 if (!serverSettings.s3Bucket) {
-  if (typeof serverSettings.storagePath !== "string") {
-    throw new TypeError("No storagePath set in settings/index.js");
-  }
-  var storagePath =  path.isAbsolute(serverSettings.storagePath) ? serverSettings.storagePath : path.join(__dirname, "..", serverSettings.storagePath);
-  app.use("/video/", express.static(path.join(storagePath, "video")));
+    app.use("/static/media/video/", express.static(path.join(serverSettings.storagePath, "video")));
+}
+
+// Serve custom fonts
+app.get("/fonts/fonts.css", fonts.css);
+app.get("/fonts/fonts.js", fonts.js);
+
+if (serverSettings.fonts) {
+    app.get("/fonts/:font", fonts.font);
 }
 
 // Check the status of a current video
@@ -72,14 +73,14 @@ app.get("/status/:id/", status);
 
 
 // Serve background images and themes JSON statically
-app.use("/settings/", function(req, res, next) {
+app.use("/settings/", function (req, res, next) {
 
-  // Limit to themes.json and bg images
-  if (req.url.match(/^\/?themes.json$/i) || req.url.match(/^\/?backgrounds\/[^/]+$/i)) {
-    return next();
-  }
+    // Limit to themes.json and bg images
+    if (req.url.match(/^\/?themes.json$/i) || req.url.match(/^\/?backgrounds\/[^/]+$/i)) {
+        return next();
+    }
 
-  return res.status(404).send("Cannot GET " + path.join("/settings", req.url));
+    return res.status(404).send("Cannot GET " + path.join("/settings", req.url));
 
 }, express.static(path.join(__dirname, "..", "settings")));
 
