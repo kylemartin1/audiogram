@@ -20,6 +20,14 @@ var app = express();
 app.use(compression());
 app.use(logger.morgan());
 
+// Allow CORS
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+console.log('CORS enabled!');
+
 // Options for where to store uploaded audio and max size
 var fileOptions = {
   storage: multer.diskStorage({
