@@ -8,12 +8,15 @@ var serverSettings = require("../settings/"),
 
 function validate(req, res, next) {
 
+
   try {
 
-    req.body.settings = JSON.parse(req.body.settings);
+    console.log(req.body)
+    req.body.theme = JSON.parse(req.body.theme);
 
   } catch(e) {
 
+    console.log(req.body)
     return res.status(500).send("Unknown settings error.");
 
   }
