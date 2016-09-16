@@ -1,8 +1,10 @@
 FROM python:2.7-wheezy
 
 # Install dependencies
-RUN apt-get install python-software-properties
-RUN apt-add-repository ppa:chris-lea/node.js
+RUN curl -sL https://deb.nodesource.com/setup_0.12 | bash -
+
+# Then install with:
+RUN apt-get install -y nodejs
 
 RUN apt-get update --yes && apt-get upgrade --yes
 
