@@ -1,7 +1,12 @@
 FROM python:2.7-wheezy
 
 # Install dependencies
+RUN apt-get install python-software-properties
+RUN apt-add-repository ppa:chris-lea/node.js
+RUN apt-get update
+
 RUN apt-get update --yes && apt-get upgrade --yes
+
 RUN apt-get install git nodejs npm \
 libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++ \
 ffmpeg \
