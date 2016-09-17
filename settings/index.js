@@ -19,8 +19,8 @@
 var path = require("path");
 
 module.exports = {
-  workingDirectory: path.join(__dirname, "../../static/audiogram/", "tmp"),
-  storagePath: path.join(__dirname, "../../static/audiogram/", "media"),
+  workingDirectory: path.join(__dirname, "App/project/static/audiogram/", "tmp"),
+  storagePath: path.join(__dirname, "App/project/static/audiogram/", "media"),
   fonts: [
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Regular.ttf") },
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Light.ttf"), weight: 300 },
