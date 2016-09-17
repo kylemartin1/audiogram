@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cd /home/audiogram/audiogram
+cd /audiogram
 npm start
