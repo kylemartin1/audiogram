@@ -1,5 +1,5 @@
 #!/bin/sh
 
-ls / 
-# cd /audiogram
-# npm start
+# ls / 
+cd /audiogram
+npm start
