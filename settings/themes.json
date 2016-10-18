@@ -107,8 +107,8 @@
     "captionFont": "300 52px 'Source Sans Pro'",
     "captionLineHeight": 52,
     "captionLineSpacing": 7,
-    "captionRight": 320,
-    "captionLeft": 500
+    "captionRight": 0,
+    "captionLeft": 320
   },
   "Green Wave (Instagram)": {
     "width": 640,
@@ -117,8 +117,8 @@
     "maxDuration": 15,
     "backgroundColor": "#556270",
     "foregroundColor": "#c7f464",
-    "captionRight": 320,
-    "captionLeft": 500
+    "captionRight": 20,
+    "captionLeft": 320
   },
   "Blue Wave (Instagram)": {
     "width": 640,
@@ -128,8 +128,8 @@
     "backgroundColor": "#eee",
     "captionColor": "#515151",
     "waveColor": "#00b4ff",
-    "captionRight": 320,
-    "captionLeft": 500
+    "captionRight": 50,
+    "captionLeft": 320
   },
   "Red Bar Wave (Instagram)": {
     "width": 640,
@@ -140,7 +140,7 @@
     "pattern": "bars",
     "foregroundColor": "#d84a4a",
     "captionRight": 320,
-    "captionLeft": 500
+    "captionLeft": 75
   },
   "Purple EQ Blocks (Instagram)": {
     "width": 640,
@@ -151,7 +151,7 @@
     "foregroundColor": "#fff",
     "pattern": "bricks",
     "captionRight": 320,
-    "captionLeft": 500
+    "captionLeft": 100
   },
   "Colorful EQ Blocks (Instagram)": {
     "width": 640,
@@ -166,7 +166,7 @@
     "waveTop": 420,
     "waveBottom": 640,
     "captionRight": 320,
-    "captionLeft": 500
+    "captionLeft": 125
   },
   "Retro Orange (Instagram)": {
     "width": 640,
@@ -177,7 +177,7 @@
     "captionTop": null,
     "captionBottom": 660,
     "captionRight": 320,
-    "captionLeft": 500,
+    "captionLeft": 300,
     "backgroundColor": "#fd5a1e",
     "waveColor": "#fff",
     "captionFont": "bold italic 52px 'Source Sans Pro'"
