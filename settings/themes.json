@@ -107,7 +107,7 @@
     "captionFont": "300 52px 'Source Sans Pro'",
     "captionLineHeight": 52,
     "captionLineSpacing": 7,
-    "captionRight": 0,
+    "captionRight": 320,
     "captionLeft": 320
   },
   "Green Wave (Instagram)": {
@@ -117,7 +117,7 @@
     "maxDuration": 15,
     "backgroundColor": "#556270",
     "foregroundColor": "#c7f464",
-    "captionRight": 20,
+    "captionRight": 320,
     "captionLeft": 320
   },
   "Blue Wave (Instagram)": {
@@ -128,7 +128,7 @@
     "backgroundColor": "#eee",
     "captionColor": "#515151",
     "waveColor": "#00b4ff",
-    "captionRight": 50,
+    "captionRight": 320,
     "captionLeft": 320
   },
   "Red Bar Wave (Instagram)": {
@@ -140,7 +140,7 @@
     "pattern": "bars",
     "foregroundColor": "#d84a4a",
     "captionRight": 320,
-    "captionLeft": 75
+    "captionLeft": 320
   },
   "Purple EQ Blocks (Instagram)": {
     "width": 640,
@@ -151,7 +151,7 @@
     "foregroundColor": "#fff",
     "pattern": "bricks",
     "captionRight": 320,
-    "captionLeft": 100
+    "captionLeft": 320
   },
   "Colorful EQ Blocks (Instagram)": {
     "width": 640,
@@ -173,9 +173,7 @@
     "height": 640,
     "framesPerSecond": 20,
     "maxDuration": 15,
-    "captionAlign": "right",
     "captionTop": null,
-    "captionBottom": 660,
     "captionRight": 320,
     "captionLeft": 320,
     "backgroundColor": "#fd5a1e",
